@@ -35,4 +35,8 @@ To merge changes, we must be on the branch where we want to receive the changes.
 
 ## 5. Reverting
 
+- reverting is like an undo button, suppose if a commit added a file, git revert will create a new commit that deletes that file.
+- first we execute git log, then we copy the commit hash(long alphanumeric)
+- now we'll do git revert [commit-hash] inside the sq. brackets we'll paste the commit hash
+
 ## 6. Resetting
