@@ -1,0 +1,20 @@
+Git commands:
+git init
+git add .
+git commit -m "xyz"
+git push
+git clone
+git status
+
+git branch
+git checkout -b updated_name
+
+The Github Flow
+git clone
+git checkout -b branch_name
+git add .
+git commit -m "message"
+git push
+open a PR
+merge or solve mergeConflicts
+
