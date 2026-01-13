@@ -24,12 +24,12 @@ To merge changes, we must be on the branch where we want to receive the changes.
 
 ## 3. Stashing
 
--git stash (to save the uncommitted changes)
--git stash apply (to apply whatever is stashed away without removing it from the stash, also useful to apply stashed changes to multiple branches)
--git stash pop (to remove the most recently stashed changes from the stash)
--git stash list( to view the stash)
--git stash apply stash@{2} (specifying a particular stash to apply)
--git stash clear ( clearing the stash)
+- git stash (to save the uncommitted changes)
+- git stash apply (to apply whatever is stashed away without removing it from the stash, also useful to apply stashed changes to multiple branches)
+- git stash pop (to remove the most recently stashed changes from the stash)
+- git stash list( to view the stash)
+- git stash apply stash@{2} (specifying a particular stash to apply)
+- git stash clear ( clearing the stash)
 
 ## 4. Rebasing
 
