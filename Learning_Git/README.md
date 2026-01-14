@@ -33,6 +33,10 @@ To merge changes, we must be on the branch where we want to receive the changes.
 
 ## 4. Rebasing
 
+- It will take all the feature branch commits and move them on top of the main branch and rewrites the commit history.
+- We get a clean straight line graph, unlike the merge command.
+- commnad: git rebase main or git rebase my_cool_feature
+
 ## 5. Reverting
 
 - reverting is like an undo button, suppose if a commit added a file, git revert will create a new commit that deletes that file.
@@ -40,3 +44,10 @@ To merge changes, we must be on the branch where we want to receive the changes.
 - now we'll do git revert [commit-hash] inside the sq. brackets we'll paste the commit hash
 
 ## 6. Resetting
+
+- Git reset moves the branch pointer backwards in time to an earlier commit. It effectively erases the commits.
+- It changes the state of three trees(HEAD, index, working directory) to match a previous commit
+- The commit that are reset away are no longer visible in your branch log.
+- it comes with three flags : --hard, --soft, --mixed
+- git reset --soft [commitHash] :It moves the branch pointer back, but it does not touch your files. Git moves the HEAD to an older commit, but it leaves all the changes from the undone commits in Staging Area (green in git status), files remain exactly as they were. It looks like you have the code ready and are just about to commit it again.
+- git reset --hard [commmitHash] : It will match the files up to that specific commits and modifies the files and the staging area accordingly.
