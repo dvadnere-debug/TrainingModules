@@ -138,7 +138,7 @@ let canDrive = age >= 18 ? "yes you can drive" : "no you cannot drive";
 console.log(canDrive);
 //Spread Operator*/
 
-//*********************************************
+//***********************************************************************************************
 //4. FUNCTIONS
 
 // function showMessage() {
@@ -234,7 +234,35 @@ console.log(c); //output 30 */
 
 // const addTwo = (num1, num2) => num1 + num2;
 // console.log(addTwo(5, 66));
-//******************************************** */
+
+// function regFunction() {
+//   console.log(arguments);
+// }
+// regFunction("hi", 5, true); //[Arguments] { '0': 'hi', '1': 5, '2': true }
+
+// const arrowFunction = () => {
+//   console.log(arguments);
+// };
+// arrowFunction("hello", 7, false); //ReferenceError: arguments is not defined
+
+// let myObj = {
+//   x: 2,
+//   regularFunc() {
+//     console.log(this.x);
+//   },
+//   arrowFunc: () => console.log(this.x),
+// };
+// myObj.regularFunc();
+// myObj.arrowFunc();
+
+//Hoisting(available only in normal functions not in arrow functions)
+
+// sayHello();
+// function sayHello() {
+//   console.log("hey there, im hoisted ");
+// }
+
+//************************************************************************** */
 
 //5. OBJECTS
 
@@ -270,7 +298,7 @@ console.log(c); //output 30 */
 // const originalObject = { a: 1, b: 2, c: 3 };
 // const copiedObject = { ...originalObject, d: 4, b: 100 };
 // console.log(copiedObject);
-//********************************************
+//*****************************************************************************************
 
 // 6. ARRAYS
 
@@ -287,6 +315,7 @@ const evenNumbers = numbers.filter(function (number) {
 console.log(evenNumbers);
 */
 
+//************************************************************************************ */
 // let arr = [5, 4, 3, 2, 77, 97];
 // let updatedArr = arr.map((val) => val + 2);
 // console.log(updatedArr);
@@ -295,6 +324,63 @@ console.log(evenNumbers);
 // let updatedArr = arr.filter((val) => val > 10);
 // console.log(updatedArr);
 
-let arr = [5, 4, 3, 2, 77, 97];
-let updatedArr = arr.reduce((prev, curr) => (curr = curr + prev));
-console.log(updatedArr);
+// let arr = [5, 4, 3, 2, 77, 97];
+// let updatedArr = arr.reduce((prev, curr) => (curr = curr + prev));
+// console.log(updatedArr);
+
+//**************************************************************************************** */
+
+//8. REST, SPREAD OPERATORS
+//Reference vs Value
+// let a= 5;
+// let b = a;
+// b=10;
+// console.log(a);
+
+// let a=[1,2,3];
+// let b = a;
+// b.push(4);
+// console.log(a);// both point to the same  memory
+
+/*const a =[1,2,3];
+const b = a;*/ //this is wron way to copy an array
+
+// const a = [1, 2, 3];
+// const b = [...a]; //correct way to copy an array
+// b.push(44);
+// console.log(a);
+// console.log(b);
+
+//spread with objects
+// const user = { name: "tommy", age: 4 };
+// const updatedUser = {
+//   ...user,
+//   age: 5,
+// };
+// console.log(user);
+// console.log(updatedUser);//original is untouched, new object is created
+
+//rest operator : packs or collects items, rest gathers remaining arguments into an array
+// function sum(...numbers) {
+//     return numbers.reduce((curr, prev) => curr=curr+prev);
+// }
+// sum(33,44,66,11); //numbers = [33,44,66,11]
+
+//rest in oject destructuring
+// const user = {
+//   name: "divya",
+//   age: 20,
+//   city: "pune",
+// };
+// const { name, ...rest } = user;
+// console.log(name);
+// console.log(rest); //{age:20, city:"pune"}
+
+//CONDITIONAL RENDERING WITH &&
+// {isLoggedIn && <Dashboard />}
+/*What happens internally:
+If isLoggedIn === false → React gets false and renders nothing
+
+If isLoggedIn === true React gets <Dashboard /> and renders it*/
+
+console.log("End of JS file");
