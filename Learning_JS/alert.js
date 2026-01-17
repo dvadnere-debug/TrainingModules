@@ -467,12 +467,52 @@ If isLoggedIn === true React gets <Dashboard /> and renders it*/
 // }
 // console.log(g(1));
 
-function one(callBack_two) {
-  console.log("Step1");
-  callBack_two();
-  console.log("callback understood");
-}
-function two() {
-  console.log("step2");
-}
-one(two);
+// function one(callBack_two) {
+//   console.log("Step1");
+//   callBack_two();
+//   console.log("callback understood");
+// }
+// function two() {
+//   console.log("step2");
+// }
+// one(two);
+
+// let order = (callBack_Production) => {
+//   console.log("order placed, informing production...");
+//   callBack_Production();
+// };
+// let production = () => {
+//   console.log(
+//     "order received, starting production, your food will be ready soon!"
+//   );
+// };
+// order(production);
+
+let stocks = {
+  Fruits: ["strawberry", "apple", "blueberry"],
+  Liquid: ["water", "ice"],
+  Holder: ["cone", "cup", "stick"],
+  Toppings: ["chocolate", "peanuts"],
+};
+
+let order = (fruit_name, call_production) => {
+  setTimeout(() => {
+    console.log(` ${stocks.Fruits[fruit_name]} was selected`);
+    call_production();
+  }, 2000);
+};
+
+let production = () => {
+  setTimeout(() => {
+    console.log("production has started...");
+
+    setTimeout(() => {
+      console.log("the fruit has been chopped");
+      setTimeout(() => {
+        console.log(`${stocks.Liquid[0]}and ${stocks.Liquid[1]} was added`);
+      });
+    }, 2000);
+  }, 0);
+};
+
+order(0, production);
