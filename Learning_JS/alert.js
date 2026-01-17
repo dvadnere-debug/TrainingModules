@@ -383,4 +383,96 @@ If isLoggedIn === false → React gets false and renders nothing
 
 If isLoggedIn === true React gets <Dashboard /> and renders it*/
 
-console.log("End of JS file");
+//console.log("End of JS file");
+
+//Functions + Lexical Scope = Closures
+
+//*********************************************** */
+
+// 11. ASYNCHRONOUS JS
+
+// function fetchDate(a) {
+//   setTimeout(() => {
+//     let data = "fetched data";
+//     a(data, "server error");
+//   }, 5000);
+// }
+// function handleData(data, error) {
+//   if (error) {
+//     console.error(error);
+//   } else {
+//     console.log(data);
+//   }
+// }
+// console.log("start");
+// fetchData(handleData);
+
+// const coinFlip = new Promise((resolve, reject) => {
+//   const random = Math.random();
+
+//   if (random > 0.5) {
+//     resolve("Heads!");
+//   } else {
+//     reject("Trails!");
+//   }
+// });
+// coinFlip
+//   .then((result) => {
+//     console.log("Success:", result);
+//   })
+//   .catch((error) => {
+//     console.log("Failed:", error);
+//   });
+
+// function username() {
+//   console.log("John");}
+// setTimeout(username, 5000);
+// console.log("Doe");
+// let id = setInterval(username, 1000);
+// setTimeout(() => {
+//   clearInterval(id);
+//   console.log("Interval stopped");
+// }, 5000);
+
+// const fetchData = new Promise((resolve,reject) => {
+//     setTimeout(() => {
+//         const data = {id: 1, name: "John Doe"};
+//         resolve(data);
+//         reject(new Error("Failed to fetch data"));,2000});}
+//     )
+
+// var a = 2;
+// b = 1;
+// function f(z) {
+//   b = 3;
+//   c = 4;
+//   var d = 6;
+//   e = 1;
+//   function g() {
+//     var e = 0;
+//     d = 3 * d;
+//     return d;
+//   }
+//   return g;
+//   var e;
+// }
+// console.log(f(1));
+
+// a = 1;
+// var d = 6;
+// function g() {
+//   var e = 0;
+//   d = 3 * d;
+//   return d;
+// }
+// console.log(g(1));
+
+function one(callBack_two) {
+  console.log("Step1");
+  callBack_two();
+  console.log("callback understood");
+}
+function two() {
+  console.log("step2");
+}
+one(two);
