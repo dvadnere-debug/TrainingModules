@@ -488,6 +488,52 @@ If isLoggedIn === true React gets <Dashboard /> and renders it*/
 // };
 // order(production);
 
+// let stocks = {
+//   Fruits: ["strawberry", "apple", "blueberry"],
+//   Liquid: ["water", "ice"],
+//   Holder: ["cone", "cup", "stick"],
+//   Toppings: ["chocolate", "peanuts"],
+// };
+
+// let order = (fruit_name, call_production) => {
+//   setTimeout(() => {
+//     console.log(` ${stocks.Fruits[fruit_name]} was selected`);
+//     call_production();
+//   }, 2000);
+// };
+
+// let production = () => {
+//   setTimeout(() => {
+//     console.log("production has started...");
+
+//     setTimeout(() => {
+//       console.log("the fruit has been chopped");
+
+//       setTimeout(() => {
+//         console.log(`${stocks.Liquid[0]}and ${stocks.Liquid[1]} was added`);
+
+//         setTimeout(() => {
+//           console.log("the machine was started");
+
+//           setTimeout(() => {
+//             console.log(`icecreme was placed in ${stocks.Holder[0]}`);
+
+//             setTimeout(() => {
+//               console.log(`${stocks.Toppings[0]} was added as toppings`);
+
+//               setTimeout(() => {
+//                 console.log("serve icecream");
+//               }, 2000);
+//             }, 3000);
+//           }, 2000);
+//         }, 1000);
+//       }, 1000);
+//     }, 2000);
+//   }, 0);
+// };
+
+// order(0, production);
+
 let stocks = {
   Fruits: ["strawberry", "apple", "blueberry"],
   Liquid: ["water", "ice"],
@@ -495,41 +541,15 @@ let stocks = {
   Toppings: ["chocolate", "peanuts"],
 };
 
-let order = (fruit_name, call_production) => {
-  setTimeout(() => {
-    console.log(` ${stocks.Fruits[fruit_name]} was selected`);
-    call_production();
-  }, 2000);
-};
-
-let production = () => {
-  setTimeout(() => {
-    console.log("production has started...");
-
-    setTimeout(() => {
-      console.log("the fruit has been chopped");
-
+let is_shop_open = true;
+let order = (time, work) => {
+  return new Promise((resolve, reject) => {
+    if (is_shop_open) {
       setTimeout(() => {
-        console.log(`${stocks.Liquid[0]}and ${stocks.Liquid[1]} was added`);
-
-        setTimeout(() => {
-          console.log("the machine was started");
-
-          setTimeout(() => {
-            console.log(`icecreme was placed in ${stocks.Holder[0]}`);
-
-            setTimeout(() => {
-              console.log(`${stocks.Toppings[0]} was added as toppings`);
-
-              setTimeout(() => {
-                console.log("serve icecream");
-              }, 2000);
-            }, 3000);
-          }, 2000);
-        }, 1000);
-      }, 1000);
-    }, 2000);
-  }, 0);
+        resolve(work());
+      }, time);
+    } else {
+      reject(console.log("our shop is closed"));
+    }
+  });
 };
-
-order(0, production);
