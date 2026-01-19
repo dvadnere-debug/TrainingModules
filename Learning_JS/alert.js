@@ -556,45 +556,173 @@ If isLoggedIn === true React gets <Dashboard /> and renders it*/
 // };
 
 //Prototypes and prototypal inheritance
-let p1 = {
-  fname: "Divya",
-  lname: "Vadnere",
-  getFullname() {
-    return `${this.fname} ${this.lname}`;
-  },
-};
-console.log(p1);
-let p2 = Object.create(p1);
-console.log("p2 is", p2.fname, p2.lname, p2.getFullname);
+// let p1 = {
+//   fname: "Divya",
+//   lname: "Vadnere",
+//   getFullname() {
+//     return `${this.fname} ${this.lname}`;
+//   },
+// };
+// console.log(p1);
+// let p2 = Object.create(p1);
+// console.log("p2 is", p2.fname, p2.lname, p2.getFullname);
 
-//__proto__:{}
-p1 = {
-  fname: "alpha",
-  lname: "beta",
-  __proto__: {},
-};
-p2 = {
-  __proto__: p1,
-};
-console.log("p2before", p2.fname);
-console.log(p2.lname);
+// //__proto__:{}
+// p1 = {
+//   fname: "alpha",
+//   lname: "beta",
+//   __proto__: {},
+// };
+// p2 = {
+//   __proto__: p1,
+// };
+// console.log("p2before", p2.fname);
+// console.log(p2.lname);
 
-p2.__proto__.fname = "Hack";
-console.log("p1 after:", p1, p1.fname);
+// p2.__proto__.fname = "Hack";
+// console.log("p1 after:", p1, p1.fname);
 
-const a1 = {
-  xa1: "I am inside a1",
-};
-const a2 = {
-  xa2: "I am inside a2",
-  __proto__: a1, //prototypal inheritance
-};
-const a3 = {
-  xa3: "I am inside a3",
-  __proto__: a2,
-};
-console.log(a2.xa1);
-console.log(a2.xa2);
-console.log("accessing a1 through a3:", a3.xa1);
-console.log("accessing a2 through a3:", a3.xa2);
-console.log("accessing a2 through a3:", a3.xa2);
+// const a1 = {
+//   xa1: "I am inside a1",
+// };
+// const a2 = {
+//   xa2: "I am inside a2",
+//   __proto__: a1, //prototypal inheritance
+// };
+// const a3 = {
+//   xa3: "I am inside a3",
+//   __proto__: a2,
+// };
+// console.log(a2.xa1);
+// console.log(a2.xa2);
+// console.log("accessing a1 through a3:", a3.xa1);
+// console.log("accessing a2 through a3:", a3.xa2);
+// console.log("accessing a2 through a3:", a3.xa2);
+
+// function multiplyBy5(num) {
+//   return num * 5;
+// }
+// multiplyBy5.power = 2;
+// console.log(multiplyBy5.power); //2
+// console.log(multiplyBy5(5)); //25
+// console.log(multiplyBy5.prototype); //{}
+
+// function createUser(username, score) {
+//   this.username = username;
+//   this.score = score;
+// }
+// createUser.prototype.increment = function () {
+//   this.score++;
+// };
+// createUser.prototype.printMe = function () {
+//   console.log(`score is ${this.score}`);
+// };
+// const chai = new createUser("chai", 25);
+// const tea = new createUser("tea", 250);
+// chai.printMe();
+
+// Object.prototype.admin = true;
+// const user = { name: "Aashima" };
+// console.log(user.admin);
+// console.log(user.hasOwnProperty("admin"));
+
+//document.getElementsByClassName;
+
+// for (const val of [1, 2, 3, 4, 5]) {
+//   console.log(val);
+// }
+
+// function makeIterator(start = 0, end = Infinity, step = 1) {
+//   let nextStart = start;
+//   let iterationCount = 0;
+//   return {
+//     next() {
+//       let result;
+//       if (iterationCount < end) {
+//         result = { value: nextStart, done: false };
+//         nextStart = nextStart + step;
+//         iterationCount++;
+//         return result;
+//       }
+//       return { value: iterationCount, done: true };
+//     },
+//   };
+// }
+
+// let user = {
+//   name: "John",
+//   age: 30,
+// };
+// user.sayHi = function () {
+//   console.log("hello");
+// };
+// user.sayHi();
+
+// user = {
+//   sayHi: function () {
+//     console.log("hello!");
+//   }
+// };
+// user = {
+//   sayHi(){
+//     console.log("Hello")
+//   }
+// };
+
+// function makeUser() {
+//   return {
+//     name: "John",
+//     ref: this,
+//   };
+// }
+// let user = makeUser();
+// console.log(user.ref);
+// console.log(user); //undefined, that's because rules that set this do not look at object definition. Only the moment of call matters
+
+// let calculator = {
+//   sum() {
+//     return this.a + this.b;
+//   },
+//   mul() {
+//     return this.a * this.b;
+//   },
+//   read() {
+//     this.a = +prompt("a?", 0);
+//     this.b = +prompt("b?", 0);
+//   },
+// };
+// calculator.read();
+// console.log(calculator.sum());
+// console.log(calculator.mul());
+
+// let ladder = {
+//     step:0,
+//     up() {
+//         this.step++;
+//         return this;
+//     },
+//     down(){
+//         this.step--;
+//         return this;
+//     },
+//     showStep: function() {
+//         alert( this.step );
+//         return this;
+//     }
+// };
+// ladder.up().up().down().up().showStep();
+
+// function User(name) {
+//   this.name = name;
+//   this.isAdmin = false;
+// }
+// let newUser = new User("Jackk");
+// console.log(newUser.name);
+// console.log(newUser.isAdmin);
+
+// console.log(a);
+// var a = 10;
+
+class Alpha {}
+const a = new Alpha();
+console.log(typeof Alpha);
