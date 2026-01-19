@@ -534,22 +534,67 @@ If isLoggedIn === true React gets <Dashboard /> and renders it*/
 
 // order(0, production);
 
-let stocks = {
-  Fruits: ["strawberry", "apple", "blueberry"],
-  Liquid: ["water", "ice"],
-  Holder: ["cone", "cup", "stick"],
-  Toppings: ["chocolate", "peanuts"],
-};
+//todo: complete the followind function:-
+// let stocks = {
+//   Fruits: ["strawberry", "apple", "blueberry"],
+//   Liquid: ["water", "ice"],
+//   Holder: ["cone", "cup", "stick"],
+//   Toppings: ["chocolate", "peanuts"],
+// };
 
-let is_shop_open = true;
-let order = (time, work) => {
-  return new Promise((resolve, reject) => {
-    if (is_shop_open) {
-      setTimeout(() => {
-        resolve(work());
-      }, time);
-    } else {
-      reject(console.log("our shop is closed"));
-    }
-  });
+// let is_shop_open = true;
+// let order = (time, work) => {
+//   return new Promise((resolve, reject) => {
+//     if (is_shop_open) {
+//       setTimeout(() => {
+//         resolve(work());
+//       }, time);
+//     } else {
+//       reject(console.log("our shop is closed"));
+//     }
+//   });
+// };
+
+//Prototypes and prototypal inheritance
+let p1 = {
+  fname: "Divya",
+  lname: "Vadnere",
+  getFullname() {
+    return `${this.fname} ${this.lname}`;
+  },
 };
+console.log(p1);
+let p2 = Object.create(p1);
+console.log("p2 is", p2.fname, p2.lname, p2.getFullname);
+
+//__proto__:{}
+p1 = {
+  fname: "alpha",
+  lname: "beta",
+  __proto__: {},
+};
+p2 = {
+  __proto__: p1,
+};
+console.log("p2before", p2.fname);
+console.log(p2.lname);
+
+p2.__proto__.fname = "Hack";
+console.log("p1 after:", p1, p1.fname);
+
+const a1 = {
+  xa1: "I am inside a1",
+};
+const a2 = {
+  xa2: "I am inside a2",
+  __proto__: a1, //prototypal inheritance
+};
+const a3 = {
+  xa3: "I am inside a3",
+  __proto__: a2,
+};
+console.log(a2.xa1);
+console.log(a2.xa2);
+console.log("accessing a1 through a3:", a3.xa1);
+console.log("accessing a2 through a3:", a3.xa2);
+console.log("accessing a2 through a3:", a3.xa2);
