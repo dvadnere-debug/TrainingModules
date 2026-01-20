@@ -567,6 +567,18 @@ If isLoggedIn === true React gets <Dashboard /> and renders it*/
 // let p2 = Object.create(p1);
 // console.log("p2 is", p2.fname, p2.lname, p2.getFullname);
 
+// class Animal {
+//   speak() {
+//     console.log("Animal sound");
+//   }
+// }
+
+// class Dog extends Animal {
+//   bark() {
+//     console.log("Bark");
+//   }
+// }
+
 // //__proto__:{}
 // p1 = {
 //   fname: "alpha",
@@ -723,6 +735,21 @@ If isLoggedIn === true React gets <Dashboard /> and renders it*/
 // console.log(a);
 // var a = 10;
 
-class Alpha {}
-const a = new Alpha();
-console.log(typeof Alpha);
+// class Alpha {}
+// const a = new Alpha();
+// console.log(typeof Alpha);
+
+function delay() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Done");
+    }, 1000);
+  });
+}
+async function run() {
+  console.log("run");
+  const result = await delay();
+  console.log(result);
+  console.log("end");
+}
+run();
