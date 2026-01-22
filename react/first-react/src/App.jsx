@@ -1,8 +1,13 @@
 import Student from "./components/Students";
 import UserGreeting from "./components/UserGreeting.jsx";
+import List from "./components/List.jsx";
+import Button from "./components/Button.jsx";
 function App() {
   return (
     <div className="student">
+      <Button />
+
+      <List />
       <UserGreeting isLoggedIn={true} username="Barcelona00" />
 
       <Student name="Chewbacca" age={30} isStudent={true} />
