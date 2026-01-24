@@ -1,6 +1,8 @@
 //updater function = A function passed as an arguement to setState() ususally. ex. setYear(year+1) Allows for safe updates based on the preovious state . Used with multiple state updates and asynchronous functions
 // React uses the current state to calculate the next state. set functions do not trigger an update. react batches together state updates for performance reasons. next state becomes the current state after an update
 
+//
+
 import React, { useState } from "react";
 
 export default function CarComp() {
