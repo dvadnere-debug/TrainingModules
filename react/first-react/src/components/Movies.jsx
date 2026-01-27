@@ -9,7 +9,9 @@ export const Movie = () => {
       const res = await axios.get(API);
       console.log(res);
     } catch (error) {
-      console.log(error);
+      console.error("Error message:", error.message);
+      console.error("Error status", error.response.status);
+      console.error("Error data:", error.response.data);
     }
   };
 
