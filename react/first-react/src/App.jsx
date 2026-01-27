@@ -7,12 +7,25 @@
 // import CarComp from "./components/CarComp.jsx";
 import Header from "./components/Header.jsx";
 import Entry from "./components/Entry.jsx";
-
+import { getPosts } from "./api/index.js";
+import { useState, useEffect } from "react";
+import PostCard from "./components/PostCard.jsx";
 function App() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    getPosts().then((post) => setData(post));
+  }, []);
+
   return (
     <>
-      <Header />
-      <Entry />
+      {data ? (
+        data.map((e) => <PostCard title={e.title} body={e.body} />)
+      ) : (
+        <p>No Data</p>
+      )}
+      {/* <Header />
+      <Entry /> */}
       {/* <CarComp />
 
       <Counter />
