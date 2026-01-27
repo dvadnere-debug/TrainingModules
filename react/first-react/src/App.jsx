@@ -11,6 +11,7 @@ import { getPosts, getRandomUser } from "./api/index.js";
 import { useState, useEffect } from "react";
 import PostCard from "./components/PostCard.jsx";
 import UserCard from "./components/UserCard.jsx";
+import { Movie } from "./components/Movies.jsx";
 
 function App() {
   const [data, setData] = useState(null);
