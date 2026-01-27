@@ -53,3 +53,8 @@ export const getPosts = async () => {
   });
   return await response.json(); //json to object conversion(array)
 };
+
+export const getRandomUser = async () => {
+  const response = await fetch("https://randomuser.me/api/", { method: "GET" });
+  return await response.json();
+};
