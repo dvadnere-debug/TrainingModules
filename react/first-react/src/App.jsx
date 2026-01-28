@@ -12,7 +12,10 @@ import { useState, useEffect } from "react";
 import PostCard from "./components/PostCard.jsx";
 import UserCard from "./components/UserCard.jsx";
 import { Movie } from "./components/Movies.jsx";
+import { createContext } from "react";
+import Understanding_useRef from "./components/Understanding_useRef.jsx";
 
+const BlahblahContext = createContext();
 function App() {
   const [data, setData] = useState(null);
   const [userData, setUserData] = useState(null);
@@ -31,6 +34,8 @@ function App() {
 
   return (
     <>
+      <Understanding_useRef />
+      {/* <BlahblahContext.Provider value={A}></BlahblahContext.Provider> */}
       {userData && <UserCard data={userData} />}
       <button onClick={refresh}>Refresh User</button>
 
