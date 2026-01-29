@@ -8,12 +8,15 @@
 import Header from "./components/Header.jsx";
 import Entry from "./components/Entry.jsx";
 import { getPosts, getRandomUser } from "./api/index.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import PostCard from "./components/PostCard.jsx";
 import UserCard from "./components/UserCard.jsx";
 import { Movie } from "./components/Movies.jsx";
 import { createContext } from "react";
 import Understanding_useRef from "./components/Understanding_useRef.jsx";
+import { lazy } from "react";
+
+const User = lazy(() => import("./components/User.jsx"));
 
 const BlahblahContext = createContext();
 function App() {
@@ -31,9 +34,17 @@ function App() {
   const refresh = () => {
     getRandomUser().then((user) => setUserData(user.results[0]));
   };
+  const [load, setLoad] = useState(false);
 
   return (
     <>
+      <h4>Lazy Loading</h4>
+      {load ? (
+        <Suspense fallback={<h3>Loading....</h3>}>
+          <User />
+        </Suspense>
+      ) : null}
+      <button onClick={() => setLoad(true)}> load user</button>
       <Understanding_useRef />
       {/* <BlahblahContext.Provider value={A}></BlahblahContext.Provider> */}
       {userData && <UserCard data={userData} />}
